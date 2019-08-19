@@ -1,0 +1,35 @@
+{% load static %}
+
+{% url 'index' as index %}
+
+<nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+        <a href="{% url 'index' %}" class="navbar-brand">
+            <img src="{% static 'img/logo_white_text.png' %}" alt="logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon1"></span>
+            <span class="navbar-toggler-icon2"></span>
+            <span class="navbar-toggler-icon3"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="drop-list">
+                    <a href="{% url 'index' %}" class="nav-link {% if request.path == index %} active {% endif %}">Home</a>
+                </li>
+                <li class="drop-list">
+                    <a href="" class="nav-link">Log</a>
+                </li>
+                <li class="drop-list">
+                    <a href="" class="nav-link">Exercises</a>
+                </li>
+                <li class="drop-list">
+                    <a href="" class="nav-link">Dashboard</a>
+                </li>
+                <li class="drop-list">
+                    <a href="" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

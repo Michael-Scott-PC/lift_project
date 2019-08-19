@@ -1,0 +1,29 @@
+MODEL/DB FIELDS
+
+TABLE = Log
+id: INT
+title: STR
+log_date: DATE
+exercise: STR (FOREIGN KEY [Exercise])
+warm-up sets: INT
+warm-up reps: INT
+working-sets: INT
+working-reps: INT
+reps: INT
+weight: INT
+RPE: FLOAT
+total_weight_moved: INT
+is_published: BOOL [true]
+
+
+TABLE = Exercise
+id: INT
+exercise: STR
+description: TEXT
+photo_main: STR
+photo_gif: STR
+is_added: BOOL [false]
+
+
+
+TABLE = Users (already a default table)

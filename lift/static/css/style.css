@@ -1,0 +1,124 @@
+img {
+  width: 100%; }
+
+.navbar-brand {
+  width: 85%;
+  margin-left: -20px;
+}
+
+.logo {
+  width: 100%; }
+
+.navbar {
+  opacity: 0.9;
+  text-transform: uppercase;
+  background-color: #8c2235;
+  padding: 0; }
+
+.drop-list {
+  align-self: center;
+}
+
+a.nav-link {
+  color: #FFF;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+#year {
+  color: red;
+}
+
+.navbar-toggler-icon1 {
+  display: block;
+  height: .2em;
+  width: 1.2em;
+  background-color: #FFF;
+  margin-bottom: .2em;
+}
+
+.navbar-toggler-icon2 {
+  display: block;
+  height: .2em;
+  width: 1.2em;
+  background-color: #FFF;
+  margin-bottom: .2em;
+}
+
+.navbar-toggler-icon3 {
+  display: block;
+  height: .2em;
+  width: 1.2em;
+  background-color: #FFF;
+}
+
+#main-footer {
+  background-color: #8c2235;
+}
+
+div.row {
+  border: 1px solid green;
+  margin: auto;
+}
+
+.row {
+  display: inline-block;
+}
+
+div.days-container {
+  border: 1px solid red;
+}
+
+ul.days {
+  margin-left: -10px;
+}
+
+li.day {
+  list-style-type: none;
+  display: inline;
+  /*border: 1px solid black;*/
+  font-size: .5em;
+  margin: 0px;
+}
+
+ul.num-days {
+  margin-left: -10px;
+}
+
+li.num-day {
+  list-style-type: none;
+  display: inline;
+  font-size: .8em;
+  margin: .1em;
+  /*border: 1px solid black;*/
+}
+
+
+@media (min-width: 768px) {
+  .container {
+      max-width: 100%;
+      margin-right: 5%;
+  }
+  .drop-list {
+    margin-right: 2%;
+  }
+  a:hover {
+    color: #3f0913;
+  }
+  .active {
+    color: black;
+    
+  }
+}
+
+@media (max-width: 991px) {
+  }
+
+@media (max-width: 768px) {
+  }
+
+@media (max-width: 576px) {
+  }
