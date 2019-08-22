@@ -52,24 +52,19 @@ a.nav-link {
   color: #FFF;
 }
 
-.container {
-  /*border: 1px solid purple;*/
-  padding: 0;
-}
-
 #year {
   color: red;
 }
 
-#month-href {
+/*#month-href {
   display: grid;
   justify-content: center;
-}
+}*/
 
 ul.days {
-  /*border: 1px solid red;*/
+  /*border: 1px solid red;
   display: grid;
-  grid-template-columns: repeat(7, 17%);
+  grid-template-columns: repeat(7, 17%);*/
   justify-content: space-evenly;
 }
 
@@ -77,27 +72,53 @@ li.day {
   list-style-type: none;
 }
 
-ul.num-days {
-  /*border: 1px purple solid;*/
-  display: grid;
-  grid-template-columns: repeat(7, 17%);
-  font-size: .7em;
-  justify-content: space-evenly;
-}
-
 li.num-day {
-  display: inline-flex;
+  /*display: inline-flex;*/
+  list-style-type: none;
 }
 
-.num-day {
+/*.num-day {
   margin: .15px;
   margin-right: 1.15px;
   width: 8.25px;
+}*/
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
 }
 
 #day-names {
   /*border: 1px solid black;*/
   font-size: .6em;
+}
+
+#month-container {
+  display: grid;
+  grid-template-columns: 90%;
+  justify-content: space-evenly;
+  align-content: baseline;
+}
+
+ul.days {
+  display: grid;
+  grid-template-columns: repeat(7, 14%);
+}
+
+ul.num-days {
+  /*display: grid;*/
+  font-size: .7em;
+  justify-content: space-evenly;
+  /*grid-template-columns: repeat(7, 14%);*/
+}
+
+.month-align {
+  justify-self: center;
+}
+
+a.day-nums-href {
+  display: grid;
+  grid-template-columns: repeat(7, 14%);
 }
 
 #main-footer {

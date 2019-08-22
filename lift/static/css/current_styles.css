@@ -1,7 +1,11 @@
-body {
-    box-sizing: border-box;
+*, *::before, *::after {
     margin: 0;
     padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
   }
   
   img {
@@ -12,31 +16,10 @@ body {
     margin-left: -20px;
   }
   
-  .logo {
-    width: 100%; }
-  
   .navbar {
     text-transform: uppercase;
     background-color: #8c2235;
     padding: 0; }
-  
-  .drop-list {
-    align-self: center;
-  }
-  
-  a.nav-link {
-    color: #FFF;
-  }
-  
-  .container {
-    /*border: 1px solid purple;*/
-    width: 100%;
-    padding: 0;
-  }
-  
-  #year {
-    color: red;
-  }
   
   .navbar-toggler-icon1 {
     display: block;
@@ -61,88 +44,62 @@ body {
     background-color: #FFF;
   }
   
-  #main-footer {
-    background-color: #8c2235;
+  .drop-list {
+    align-self: center;
   }
   
-  div.row {
-    /*border: 1px solid green;*/
-    margin: -2px;
+  a.nav-link {
+    color: #FFF;
   }
   
-  .row {
-    display: inline-block;
+  .container {
+    /*border: 1px solid purple;*/
+    padding: 0;
   }
   
-  a.month-name {
+  #year {
+    color: red;
+  }
+  
+  #month-href {
     display: grid;
     justify-content: center;
-    margin-left: -15px;
   }
   
   ul.days {
-    margin-left: -10px;
+    /*border: 1px solid red;*/
     display: grid;
-    grid-template-columns: repeat(7, 15%);
-    padding: 0px;
-    justify-items: center;
+    grid-template-columns: repeat(7, 17%);
+    justify-content: space-evenly;
   }
   
   li.day {
     list-style-type: none;
-    /*display: inline;*/
-    /*border: 1px solid black;*/
-    font-size: .5em;
-    margin: 0px;
   }
   
   ul.num-days {
-    /*border: 1px solid red;*/
+    /*border: 1px purple solid;*/
     display: grid;
     grid-template-columns: repeat(7, 17%);
-    /*margin-left: -10px;
-    margin-top: -15px;*/
-    padding: 0px;
+    font-size: .7em;
     justify-content: space-evenly;
   }
   
   li.num-day {
     display: inline-flex;
-    list-style-type: none;
-    /*border: 1px solid black;*/
   }
   
   .num-day {
-    /*border: 1px solid yellow;*/
-    font-size: .7em;
-    width: 8.25px;
     margin: .15px;
     margin-right: 1.15px;
+    width: 8.25px;
   }
   
-  @media (min-width: 768px) {
-    /*.container {
-        max-width: 100%;
-        margin-right: 5%;
-    }*/
-    .drop-list {
-      margin-right: 2%;
-    }
-    a:hover {
-      color: #3f0913;
-    }
-    .active {
-      color: black;
-      
-    }
+  #day-names {
+    /*border: 1px solid black;*/
+    font-size: .6em;
   }
   
-  @media (max-width: 991px) {
-    }
-  
-  @media (max-width: 768px) {
-    }
-  
-  @media (max-width: 576px) {
-    }
-  
+  #main-footer {
+    background-color: #8c2235;
+  }
