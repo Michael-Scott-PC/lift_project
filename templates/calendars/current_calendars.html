@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id="year">2019</h1>
+<div class="container col-12">
+    {% if months %}
+        {% for month in months %}
+        <div class="row col-4">
+            <a class="month-name" href="">{{ month }}</a>
+            <ul class="days" >
+                {% if days %}
+                    {% for day in days %}
+                <li class="day">{{ day }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <ul class="num-days">
+                {% if january %}
+                    {% for key,value in january.items %}
+                    <li class="num-day">{{ value }}</li>
+                    {% endfor %}
+                {% endif %}
+                {% if february %}
+                    {% for key,value in february.items %}
+                    <li class="num-day">{{ value }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+    {% endif %}       
+</div>
+{% endblock %}
