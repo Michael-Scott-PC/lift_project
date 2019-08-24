@@ -121,6 +121,10 @@ a.day-nums-href {
   grid-template-columns: repeat(7, 14%);
 }
 
+a.day-nums-href:active {
+  text-decoration: none;
+}
+
 #main-footer {
   background-color: #8c2235;
 }
