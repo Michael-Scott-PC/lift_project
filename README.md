@@ -16,3 +16,5 @@ With these ideas in mind, I set out to create an application that allows for a U
 * This the full year calendar desktop view as of now.
 <img src="https://user-images.githubusercontent.com/43099976/63643760-e4ada700-c6a5-11e9-9f7d-daf6427a45e0.JPG" width="80%" height="80%">
 
+## Currently working on: 
+the individual month view - dynamically loading exercises to the specified day.
