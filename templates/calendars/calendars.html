@@ -1,111 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 id="year">2019</h1>
+
+<h1 id="year">{{ current_year }}</h1>
+
+<!--{% if events %}
+    {% for event in events %}
+        <p>{{ event.title }}</p>
+        <p>{{ event.start_time.month }}</p>
+        <p>{{ event.start_time.weekday }}</p>
+        <p>{{ event.start_time.day }}</p>
+        <p>{{ event.start_time.year }}</p>
+    {% endfor %}
+{% endif %}-->
+
 <div class="body">
-    {% if months %}
-        {% for key,value in months.items %}
+    {% if abbr_months %}
+        {% for abbr_month in abbr_months %}
             <div class="" id="month-container">
                 <div class="month-align"> 
-                    <a href="{% url 'index' %}" id="month-href" value="{{ key }}">{{ value }}</a>
+                    <a href="{% url 'index' %}" id="month-href">{{ abbr_month }}</a>
                 </div>
                 <div class="">
                     <ul class="days">
-                        {% if days %}
-                            {% for key,value in days.items %}
-                        <li class="day" id="day-names"><a href="{% url 'index' %}" class="day-name-href" value="{{ key }}">{{ value }}</li></a>
+                        {% if abbr_weekdays %}
+                            {% for abbr_weekday in abbr_weekdays %}
+                        <li class="day" id="day-names"><a href="{% url 'index' %}" class="day-name-href" value="{{ key }}">{{ abbr_weekday }}</li></a>
                             {% endfor %}
                         {% endif %}
                     </ul>
                 </div>
                 <div class="">
                     <ul class="num-days">
-                        <a href="{% url 'index' %}" class="day-nums-href">                            {% if value == 'Jan' %}
-                                {% if january %}
-                                    {% for key,value in january.items %}
+                        <a href="{% url 'index' %}" class="day-nums-href">                            
+                            {% for key,value in month_days_dict.items %}
+                                {% if abbr_month == 'Jan' %}
+                                    {% if key == 'January' %}
                                     <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
-                            {% if value == 'Feb' %}
-                                {% if february %}
-                                    {% for key,value in february.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Mar' %}
-                                {% if march %}
-                                    {% for key,value in march.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Apr' %}
-                                {% if april %}
-                                    {% for key,value in april.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'May' %}
-                                {% if may %}
-                                    {% for key,value in may.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Jun' %}
-                                {% if june %}
-                                    {% for key,value in june.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Jul' %}
-                                {% if july %}
-                                    {% for key,value in july.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Aug' %}
-                                {% if august %}
-                                    {% for key,value in august.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Sep' %}
-                                {% if september %}
-                                    {% for key,value in september.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Oct' %}
-                                {% if october %}
-                                    {% for key,value in october.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Nov' %}
-                                {% if november %}
-                                    {% for key,value in november.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                            {% if value == 'Dec' %}
-                                {% if december %}
-                                    {% for key,value in december.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
+                            {% endfor %}
                         </a>
-                    </ul>
+                    </ul> 
                 </div>
             </div>
         {% endfor %}

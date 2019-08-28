@@ -1,25 +1,29 @@
 from django.shortcuts import get_object_or_404, render
-from .months_days import months, days, january, february, march, april, may, june, july, august, september, october, november, december
 from django.http import HttpResponse
+from .months_days import FullCalendar
+from .models import Event
+from exercises.models import Exercise
 
-# Create your views here.
+
 def calendars(request):
+    events = Event.objects.all()
+
+    cal = FullCalendar()
+    current_year = cal.this_year
+    months = cal.generate_month_lst()
+    abbr_months = cal.generate_abbr_month_lst()
+    abbr_weekdays = cal.generate_abbr_weekday_lst()
+    month_days = cal.generate_monthdays_lst()
+    month_days_dict = cal.create_month_days_dict(months, month_days)
 
     context = {
+        'current_year': current_year,
         'months': months,
-        'days': days,
-        'january': january,
-        'february': february,
-        'march': march,
-        'april': april,
-        'may': may,
-        'june': june,
-        'july': july,
-        'august': august,
-        'september': september,
-        'october': october,
-        'november': november,
-        'december': december
-    }
+        'abbr_months': abbr_months,
+        'monday_days': month_days,
+        'abbr_weekdays': abbr_weekdays,
+        'month_days_dict': month_days_dict,
+        'events': events
+        }
 
     return render(request, 'calendars/calendars.html', context)
