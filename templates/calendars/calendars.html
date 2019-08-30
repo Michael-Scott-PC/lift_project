@@ -4,39 +4,156 @@
 
 <h1 id="year">{{ current_year }}</h1>
 
-<!--{% if events %}
-    {% for event in events %}
-        <p>{{ event.title }}</p>
-        <p>{{ event.start_time.month }}</p>
-        <p>{{ event.start_time.weekday }}</p>
-        <p>{{ event.start_time.day }}</p>
-        <p>{{ event.start_time.year }}</p>
-    {% endfor %}
-{% endif %}-->
-
-<div class="body">
+<div class="main">
     {% if abbr_months %}
         {% for abbr_month in abbr_months %}
             <div class="" id="month-container">
                 <div class="month-align"> 
-                    <a href="{% url 'index' %}" id="month-href">{{ abbr_month }}</a>
+                    <a href="{% url 'calendar' abbr_month %}" id="month-href">{{ abbr_month }}</a>
                 </div>
                 <div class="">
                     <ul class="days">
                         {% if abbr_weekdays %}
                             {% for abbr_weekday in abbr_weekdays %}
-                        <li class="day" id="day-names"><a href="{% url 'index' %}" class="day-name-href" value="{{ key }}">{{ abbr_weekday }}</li></a>
+                        <li class="day" id="day-names"><a href="{% url 'calendar' abbr_month %}" class="day-name-href" value="{{ key }}">{{ abbr_weekday }}</li></a>
                             {% endfor %}
                         {% endif %}
                     </ul>
                 </div>
                 <div class="">
                     <ul class="num-days">
-                        <a href="{% url 'index' %}" class="day-nums-href">                            
+                        <a href="{% url 'calendar' abbr_month %}" class="day-nums-href">                            
                             {% for key,value in month_days_dict.items %}
                                 {% if abbr_month == 'Jan' %}
                                     {% if key == 'January' %}
-                                    <li class="num-day">{{ value }}</li>
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Feb' %}
+                                    {% if key == 'February' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Mar' %}
+                                    {% if key == 'March' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Apr' %}
+                                    {% if key == 'April' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'May' %}
+                                    {% if key == 'May' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Jun' %}
+                                    {% if key == 'June' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Jul' %}
+                                    {% if key == 'July' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Aug' %}
+                                    {% if key == 'August' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Sep' %}
+                                    {% if key == 'September' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Oct' %}
+                                    {% if key == 'October' %}
+                                       {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Nov' %}
+                                    {% if key == 'November' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endif %}
+                                {% if abbr_month == 'Dec' %}
+                                    {% if key == 'December' %}
+                                        {% for v in value %}
+                                            {% if v == 0 %}
+                                            <li class="num-day"></li>
+                                            {% else %}
+                                            <li class="num-day">{{ v }}</li>
+                                            {% endif %}
+                                        {% endfor %}
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}

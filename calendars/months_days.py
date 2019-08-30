@@ -2,7 +2,7 @@ import calendar
 from datetime import datetime
 from datetime import date
 from calendar import Calendar
-from .models import Event
+#from .models import Event
 
 class FullCalendar(calendar.TextCalendar):
     """Create a full 12 month calendar for the current year"""
@@ -23,6 +23,13 @@ class FullCalendar(calendar.TextCalendar):
         del month_lst[0]
         return month_lst
 
+    def full_month_names_numbers_dict(self):
+        """ Assign each month to a number value """
+        months = self.generate_month_lst()
+        num_keys_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        indexed_months_dict = dict(zip(months, num_keys_lst))
+        return indexed_months_dict
+
     def generate_abbr_month_lst(self):
         """ Create a list of strings containing the abbr month names """
         abbr_month_names = calendar.month_abbr
@@ -32,13 +39,16 @@ class FullCalendar(calendar.TextCalendar):
         del abbr_month_lst[0]
         return abbr_month_lst
 
+    def abbr_month_numbers_dict(self):
+        """ Assign each abbreviated month to a number value """
+        abbr_month = self.generate_abbr_month_lst()
+        num_keys_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        indexed_abbr_month_dict = dict(zip(abbr_month, num_keys_lst))
+        return indexed_abbr_month_dict
+
     def generate_abbr_weekday_lst(self):
-        """ Create a list of weekday name abbreviations containing 2 letters """
-        abbr_weekday_names = calendar.day_abbr
-        abbr_weekday_lst = []
-        for abbr in abbr_weekday_names:
-            abbr = abbr.replace(abbr[-1], '')
-            abbr_weekday_lst.append(abbr)
+        """ Create a list of weekday name abbreviations containing 2 letters and make Su 0 index. """
+        abbr_weekday_lst = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
         return abbr_weekday_lst
 
     def generate_monthdays_lst(self):

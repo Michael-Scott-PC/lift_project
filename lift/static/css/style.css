@@ -8,6 +8,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  box-sizing: border-box;
+  line-height: normal;
+}
+
 img {
   width: 100%; }
 
@@ -52,19 +57,16 @@ a.nav-link {
   color: #FFF;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
+
 #year {
   color: red;
 }
 
-/*#month-href {
-  display: grid;
-  justify-content: center;
-}*/
-
 ul.days {
-  /*border: 1px solid red;
-  display: grid;
-  grid-template-columns: repeat(7, 17%);*/
   justify-content: space-evenly;
 }
 
@@ -73,23 +75,10 @@ li.day {
 }
 
 li.num-day {
-  /*display: inline-flex;*/
   list-style-type: none;
 }
 
-/*.num-day {
-  margin: .15px;
-  margin-right: 1.15px;
-  width: 8.25px;
-}*/
-
-.body {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
-}
-
 #day-names {
-  /*border: 1px solid black;*/
   font-size: .6em;
 }
 
@@ -106,10 +95,8 @@ ul.days {
 }
 
 ul.num-days {
-  /*display: grid;*/
   font-size: .7em;
   justify-content: space-evenly;
-  /*grid-template-columns: repeat(7, 14%);*/
 }
 
 .month-align {
@@ -123,6 +110,32 @@ a.day-nums-href {
 
 a.day-nums-href:active {
   text-decoration: none;
+}
+
+.single_cal_main {
+  /*border: 1px solid black;*/
+  display: grid;
+  text-align: center;
+  height: -webkit-fill-available;
+}
+
+.single-cal-day-nums-href {
+  display: grid;
+  grid-template-columns: repeat(7, 14%);
+  grid-template-rows: repeat(6, 85%);
+  justify-content: center
+}
+
+.single-cal-num-day {
+  list-style-type: none;
+  /*border: .3px solid grey;*/
+}
+
+.event {
+  list-style-type: none;
+  color: white;
+  background-color: #8c2235;
+  margin: .25em;
 }
 
 #main-footer {

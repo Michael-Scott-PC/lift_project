@@ -1,115 +1,352 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 id="year">2019</h1>
-<div class="body">
-    {% if months %}
-        {% for month in months %}
-            <div class="" id="month-container">
-                <div class="month-align"> 
-                    <a href="{% url 'index' %}" id="month-href">{{ month }}</a>
-                </div>
-                <div class="">
-                    <ul class="days">
-                        {% if days %}
-                            {% for day in days %}
-                        <li class="day" id="day-names"><a href="{% url 'index' %}" class="day-name-href">{{ day }}</li></a>
+<h1 id="year">{{ current_year }}</h1>
+<div class="single_cal_main">
+    <div class="month-align"> 
+        <h2><a href="{% url 'index' %}" id="month-href">{{ abbr_month }}</a></h2>
+    </div>
+    <div class="">
+        <ul class="days">
+            {% if abbr_weekdays %}
+                {% for abbr_weekday in abbr_weekdays %}
+                    <li class="day" id="day-names"><a href="{% url 'index' %}" class="day-name-href" value="{{ key }}">{{ abbr_weekday }}</li></a>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+    <div class="single-cal-day-num-container">
+        <ul class="num-days">
+            <a href="{% url 'calendar' abbr_month %}" class="single-cal-day-nums-href">                            
+                {% for key,value in month_days_dict.items %}
+                    {% if abbr_month == 'Jan' %}
+                        {% if key == 'January' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                    <ul class="events">
+                                        {% if events %}
+                                            {% for event in events %}
+                                                {% for key, value in abbr_month_nums_dict.items %}
+                                                    {% if value == event.start_time.month %}
+                                                        {% if v == event.start_time.day %}
+                                                        <li class="event">
+                                                            {{ event.title }}
+                                                        </li>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                                {% endif %}
                             {% endfor %}
                         {% endif %}
-                    </ul>
-                </div>
-                <div class="">
-                    <ul class="num-days">
-                        <a href="{% url 'calendar' %}" class="day-nums-href">
-                            {% if month == 'Jan' %}
-                                {% if january %}
-                                    {% for key,value in january.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                    {% endif %}
+                    {% if abbr_month == 'Feb' %}
+                        {% if key == 'February' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Feb' %}
-                                {% if february %}
-                                    {% for key,value in february.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Mar' %}
+                        {% if key == 'March' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Mar' %}
-                                {% if march %}
-                                    {% for key,value in march.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Apr' %}
+                        {% if key == 'April' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Apr' %}
-                                {% if april %}
-                                    {% for key,value in april.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'May' %}
+                        {% if key == 'May' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'May' %}
-                                {% if may %}
-                                    {% for key,value in may.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Jun' %}
+                        {% if key == 'June' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Jun' %}
-                                {% if june %}
-                                    {% for key,value in june.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Jul' %}
+                        {% if key == 'July' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Jul' %}
-                                {% if july %}
-                                    {% for key,value in july.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Aug' %}
+                        {% if key == 'August' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Aug' %}
-                                {% if august %}
-                                    {% for key,value in august.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Sep' %}
+                        {% if key == 'September' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Sep' %}
-                                {% if september %}
-                                    {% for key,value in september.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Oct' %}
+                        {% if key == 'October' %}
+                           {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Oct' %}
-                                {% if october %}
-                                    {% for key,value in october.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Nov' %}
+                        {% if key == 'November' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Nov' %}
-                                {% if november %}
-                                    {% for key,value in november.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    {% if abbr_month == 'Dec' %}
+                        {% if key == 'December' %}
+                            {% for v in value %}
+                                {% if v == 0 %}
+                                <li class="single-cal-num-day"></li>
+                                {% else %}
+                                <li class="single-cal-num-day">{{ v }}
+                                        <ul class="events">
+                                            {% if events %}
+                                                {% for event in events %}
+                                                    {% for key, value in abbr_month_nums_dict.items %}
+                                                        {% if key == abbr_month and value == event.start_time.month %}
+                                                            {% if v == event.start_time.day %}
+                                                            <li class="event">
+                                                                {{ event.title }}
+                                                            </li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </li>
                                 {% endif %}
-                            {% endif %}
-                            {% if month == 'Dec' %}
-                                {% if december %}
-                                    {% for key,value in december.items %}
-                                    <li class="num-day">{{ value }}</li>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                        </a>
-                    </ul>
-                </div>
-            </div>
-        {% endfor %}
-    {% endif %}  
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </a>
+        </ul> 
+    </div>
+    
 </div>
 {% endblock %}
