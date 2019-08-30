@@ -8,7 +8,7 @@ My weightlifting philosophy:
 With these ideas in mind, I set out to create an application that allows for a UI that is just as simple as the philosophy. There are two things that absolutely must be tracked if you want optimal results: your program and protein intake. Both of these have a direct relationship with time, therefore, it made sense to begin the interface (and likely home page) with a calendar view.
 
 * This is the full year calendar mobile view I have completed. You will be able to tap the month to see a month view, then tap on a day to see the day view. 
-<img src="https://user-images.githubusercontent.com/43099976/63643757-d9f31200-c6a5-11e9-9c02-386d8e1f43cd.JPG" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/43099976/63985907-b6620a00-ca9f-11e9-8bb7-0262d6cb6adf.JPG" width="50%" height="50%">
 
 * This is what the drop down menu looks like as of now on mobile. More links may be added; links may be altered.
 <img src="https://user-images.githubusercontent.com/43099976/63643758-e1b2b680-c6a5-11e9-9777-68037705679d.JPG" width="50%" height="50%">
