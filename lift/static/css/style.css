@@ -11,6 +11,7 @@ html {
 body {
   box-sizing: border-box;
   line-height: normal;
+  height: 60em;
 }
 
 img {
@@ -123,19 +124,38 @@ a.day-nums-href:active {
   display: grid;
   grid-template-columns: repeat(7, 14%);
   grid-template-rows: repeat(6, 85%);
-  justify-content: center
+  justify-content: center;
+}
+
+a.single-cal-day-nums-href {
+  text-decoration: none;
 }
 
 .single-cal-num-day {
   list-style-type: none;
+  font-weight: bold;
   /*border: .3px solid grey;*/
+  
 }
 
 .event {
   list-style-type: none;
   color: white;
   background-color: #8c2235;
-  margin: .25em;
+  margin: .3em;
+}
+
+a.nav-link.active {
+  color: #f54565;
+}
+
+.card-header {
+  background-color: #f54565;
+}
+
+.input-button {
+  background-color: #f54565;
+  color: #FFFFFF;
 }
 
 #main-footer {

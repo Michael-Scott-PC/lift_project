@@ -1,7 +1,5 @@
 {% load static %}
 
-{% url 'index' as index %}
-
 <nav class="navbar navbar-expand-md sticky-top">
     <div class="container">
         <a href="{% url 'index' %}" class="navbar-brand">
@@ -14,18 +12,77 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="drop-list">
-                    <a href="{% url 'index' %}" class="nav-link {% if request.path == index %} active {% endif %}">Home</a>
-                </li>
-                <li class="drop-list">
-                    <a href="" class="nav-link">Daily Log</a>
-                </li>
-                <li class="drop-list">
-                    <a href="" class="nav-link">Exercises</a>
-                </li>
-                <li class="drop-list">
-                    <a href="" class="nav-link">Login</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'index' %}" {% if 'index' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Home</a>
+                    </li>
+                    <li>
+                        <a href="" {% if 'log ' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Log</a>
+                    </li>
+                    <li>
+                        <a href="" {% if 'exercises' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Exercises</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'index' %}" class="nav-link">Welcome, {{ user.username }}</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                            <i class="fas fa-sign-out-alt">Logout</i>
+                        </a>
+                        <form action="{% url 'logout' %}" method="POST" id="logout">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'index' %}" {% if 'index' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Home</a>
+                    </li>
+                    <li>
+                        <a href="" {% if 'log ' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Log</a>
+                    </li>
+                    <li>
+                        <a href="" {% if 'exercises' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Exercises</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'register' %}" {% if 'register' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Register</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login' %}" {% if 'login' in request.path %}
+                        class="nav-link active"
+                        {% else %}
+                        class="nav-link"
+                        {% endif %}>Login</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
