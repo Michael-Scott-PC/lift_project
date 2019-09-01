@@ -6,7 +6,6 @@ from exercises.models import Exercise
 
 
 def calendars(request):
-    #events = Event.objects.all()
 
     cal = FullCalendar()
     current_year = cal.this_year
@@ -23,7 +22,6 @@ def calendars(request):
         'monday_days': month_days,
         'abbr_weekdays': abbr_weekdays,
         'month_days_dict': month_days_dict,
-        #'events': events
         }
 
     return render(request, 'calendars/calendars.html', context)

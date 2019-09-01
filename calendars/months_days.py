@@ -2,7 +2,7 @@ import calendar
 from datetime import datetime
 from datetime import date
 from calendar import Calendar
-#from .models import Event
+
 
 class FullCalendar(calendar.TextCalendar):
     """Create a full 12 month calendar for the current year"""
